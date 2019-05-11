@@ -1,6 +1,6 @@
 # Vote 2.0
 
-Тема сервиса на форуме проекта Freeland: 
+Тема сервиса на форуме проекта Freeland: https://forum.mfcoin.net/topic/492/
 
 ## Развертывание
 
