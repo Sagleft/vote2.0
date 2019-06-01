@@ -1,5 +1,5 @@
 # composer плюшки
-/vendor/**
+/controller/vendor/**
 # кеш шаблонов
 /view/cache/**
 # параметры

@@ -4,7 +4,7 @@
 
 ## Требования
 * PHP 7.1;
-* MariaDB (?)v;
+* MySQL \ MariaDB;
 * Apache 2.6;
 
 ## Развертывание
@@ -15,3 +15,12 @@ cd vote2
 mkdir view/cache
 composer update
 ```
+
+Directory: ``` controller\public_html ```
+
+
+## Copyright
+
+* Copyright (c) 2019 Sagleft.
+* EasyBitcoin-PHP Copyright (c) 2013 Andrew LeCody.
+* Skeleton Web Template Copyright (c) 2011-2014 Dave Gamache.
