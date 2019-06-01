@@ -3,9 +3,9 @@
 Тема сервиса на форуме проекта Freeland: https://forum.mfcoin.net/topic/492/
 
 ## Требования
-* PHP >= 5.6;
+* PHP 7.1;
 * MariaDB (?)v;
-* Apache (?)v;
+* Apache 2.6;
 
 ## Развертывание
 
@@ -15,4 +15,3 @@ cd vote2
 mkdir view/cache
 composer update
 ```
-
