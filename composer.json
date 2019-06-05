@@ -7,8 +7,9 @@
 	"autoload": {
 		"psr-4": {
 			"Vote\\Controller\\": "controller/src/",
+			"Vote\\Controller\\Modules\\": "controller/src/modules/",
 			"Vote\\Model\\": "model/",
-			"Vote\\Modules\\": "model/modules/",
+			"Vote\\Model\\Modules\\": "model/modules/",
 			"RPC\\": "model/"
 		}
 	},
