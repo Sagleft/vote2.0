@@ -10,8 +10,8 @@
 			$this->controller = new \Vote\Controller\Modules\UserController($renderT);
 		}
 		
-		public function get_controller() {
-			return $this->controller;
+		public function pageLogic() {
+			$this->controller->showUserPage();
 		}
 	}
 	
