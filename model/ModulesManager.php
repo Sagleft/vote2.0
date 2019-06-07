@@ -4,11 +4,17 @@
 	class ModulesManager {
 		private $modules = [];
 		
-		public function __construct() {
+		public function __construct($renderT = null) {
+			//составляем массив модулей
+			//и передаем им ссылку на render (!!)
+			//Call-time pass-by-reference has been removed
 			$this->modules = [
-				new \Vote\Model\Modules\User(),
-				//new \Vote\Model\Modules\Vote()
+				'user' => new \Vote\Model\Modules\User($renderT)
 			];
+		}
+		
+		public function getModule($name) {
+			return $this->modules[$name];
 		}
 	}
 	

@@ -2,14 +2,18 @@
 	namespace Vote\Model;
 	
 	class Logic {
-		public $controller = null;
-		private $modulesManager = null;
-		private $environment = null;
+		public  $controller    = null;
+		public $modulesManager = null;
+		private $environment   = null;
+		//private $user = null;
 		
 		public function __construct() {
 			$this->controller     = new \Vote\Controller\LogicController();
-			$this->modulesManager = new \Vote\Model\ModulesManager();
+			$renderT = $this->controller->get_render();
+			$this->modulesManager = new \Vote\Model\ModulesManager($renderT);
 			$this->environment    = new \Vote\Model\Environment();
+			
+			//$this->user = $this->modulesManager->getModule('user');
 		}
 	}
 	

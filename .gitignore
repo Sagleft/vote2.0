@@ -1,5 +1,7 @@
 # composer плюшки
 /controller/vendor/**
+# вспомогательные скрипты для тестов
+/controller/public_html/test_auth.php
 # кеш шаблонов
 /view/cache/**
 # параметры

@@ -22,9 +22,9 @@ LogicController (model) - отвечает за подключение к MFCoin
 
 ## Как создать новый модуль
 
-На примере с именем "MFCoin"
+На примере с именем модуля "MFCoin" (и соответственно с таким именем основного класса модуля):
 
-* в ```model/modules``` создать файл MFCoin.php (или MFCoin.model.php) по примеру с файлов в этой директории, написать в нем основную логику модуля.
-* в ```controller/src/modules``` также создать файл MFCoin.php (или MFCoin.controller.php).
+* в ```model/modules``` создать файл MFCoin.php по примеру с файлов в этой директории, написать в нем основную логику модуля.
+* в ```controller/src/modules``` создать файл MFCoinController.php.
 * в ```view/modules/MFCoin``` составить .tmpl шаблоны для представления модуля, если необходимы.
 * в ```model/ModulesManager.php``` добавить в массив класс модуля.

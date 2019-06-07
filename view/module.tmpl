@@ -1,0 +1,17 @@
+{# отображение страницы модуля #}
+{# обертка #}
+<!DOCTYPE html>
+<html>
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{# mdiv #}
+		<div class="container">
+			{% include 'parts/navbar.tmpl' %}
+			<div class="row"><br/>
+				{% include 'modules/'~page.module.name~'/'~page.module.room~'.tmpl' %}
+			</div>
+		  </div>
+		</div>
+		{# mdiv #}
+	</body>
+</html>

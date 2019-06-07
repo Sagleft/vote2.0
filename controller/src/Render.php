@@ -1,6 +1,7 @@
 <?php
 	namespace Vote\Controller;
-	
+	//для отображения страниц и их элементов
+	//на основе twig-шаблонов и полученных данных
 	class Render {
 		private $data_wrap = [
 			'page'    => [],
