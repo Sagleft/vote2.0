@@ -3,9 +3,9 @@
 	
 	class LogicController {
 		//renderT - чтобы не пересекалось с функцией render
-		private $renderT         = null;
-		private $user            = null;
-		private $modulesManager  = null;
+		private $renderT        = null;
+		private $user           = null;
+		private $modulesManager = null;
 		
 		public function __construct() {
 			$this->renderT = new \Vote\Controller\Render();
@@ -24,7 +24,7 @@
 			$this->renderT->twigRender($data);
 		}
 		
-		public function renderModulePage($module_name): void {
+		public function renderModulePage(string $module_name): void {
 			//только для модулей, которые Renderable
 			$module = $this->modulesManager->getModule($module_name);
 			$renderData = $module->controller->getRenderData();
@@ -46,7 +46,7 @@
 			}
 		}
 		
-		public function renderPage($tag): void {
+		public function renderPage(string $tag): void {
 			$this->renderT->twigRender([
 				'tag'  => $tag
 			]);

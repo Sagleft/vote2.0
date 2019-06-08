@@ -15,7 +15,7 @@
 			return $string;
 		}
 		
-		function cURL($url, $ref, $header, $cookie, $p=null): string {
+		function cURL(string $url, string $ref, string $header, string $cookie, $p = null): string {
 			$curlDefault = true;
 			//чтобы тестировать на сервере, на котором нет guzzle
 			if($curlDefault) {
@@ -66,7 +66,7 @@
 		}
 		
 		function curl_get($url): string {
-			return \Alicanto\Utilities::cURL($url, '', '', '');
+			return \Vote\Utilities::cURL($url, '', '', '');
 		}
 	}
 	
