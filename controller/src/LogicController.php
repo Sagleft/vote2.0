@@ -4,34 +4,46 @@
 	class LogicController {
 		private $coin_connection = null;
 		//renderT - чтобы не пересекалось с функцией render
-		private $renderT = null;
+		private $renderT         = null;
+		private $user            = null;
+		private $modulesManager  = null;
 		
 		public function __construct() {
 			$this->renderT = new \Vote\Controller\Render();
 		}
 		
-		//public function get_render() {
-		//	return $this->renderT;
-		//}
+		public function set_manager($modulesManager) {
+			$this->modulesManager = &$modulesManager;
+		}
+		
+		public function set_user($user) {
+			$this->user = &$user;
+		}
 		
 		public function render($data) {
 			$this->renderT->twigRender($data);
 		}
 		
-		public function renderModulePage($module, $renderData) {
-			$this->renderT->twigRender([
-				'tag'    => 'module',
-				'module' => [
-					'name' => $module->name, 'room' => $renderData['room']
-				],
-				'title'  => 'Мой профиль',
-				'user'   => [
-					'uid'       => $this->uid,
-					'nick_name' => $this->nick_name,
-					'is_auth'   => $this->is_auth
-				],
-				'lang'  => $this->language
-			]);
+		public function renderModulePage($module_name) {
+			//только для модулей, которые Renderable
+			$module = $this->modulesManager->getModule($module_name);
+			$renderData = $module->controller->getRenderData();
+			if($renderData == false) {
+				//не вышло запросить данные
+				header("Location: /"); exit;
+			} else {
+				$data = [
+					'tag'    => 'module',
+					'module' => [
+						'name' => $module_name,
+						'room' => $renderData['room']
+					],
+					'title'  => $renderData['title']
+				];
+				//для модуля User (и варианта шаблона - profile) путь для шаблона будет /view/User/profile.tmpl
+				$data[$module_name] = $renderData['data'];
+				$this->renderT->twigRender($data);
+			}
 		}
 		
 		public function renderPage($tag) {

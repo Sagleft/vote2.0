@@ -6,8 +6,6 @@
 		
 		public function __construct($renderT = null) {
 			//составляем массив модулей
-			//и передаем им ссылку на render (!!)
-			//Call-time pass-by-reference has been removed
 			$this->modules = [
 				'user' => new \Vote\Model\Modules\User($renderT)
 			];

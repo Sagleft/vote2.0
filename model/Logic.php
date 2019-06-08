@@ -5,12 +5,17 @@
 		public  $controller    = null;
 		public $modulesManager = null;
 		private $environment   = null;
+		//private $user          = null;
 		
 		public function __construct() {
-			$this->controller     = new \Vote\Controller\LogicController();
-			$renderT = $this->controller->get_render();
-			$this->modulesManager = new \Vote\Model\ModulesManager($renderT);
+			//переменные среды
 			$this->environment    = new \Vote\Model\Environment();
+			//контроллер
+			$this->controller     = new \Vote\Controller\LogicController();
+			//менеджер модулей
+			$this->modulesManager = new \Vote\Model\ModulesManager($renderT);
+			//передаем ссылку на менеджер модулей в контроллер
+			$this->controller->set_manager($this->modulesManager);
 		}
 	}
 	

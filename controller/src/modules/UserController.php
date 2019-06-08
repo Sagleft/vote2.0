@@ -31,26 +31,19 @@
 			//TODO, а пока через test_auth
 		}
 		
-		public function showUserPage() {
+		public function getRenderData() {
 			if($this->is_auth) {
-				//TODO: сделать общую обертку для шаблонов модулей
-				$this->renderT->twigRender([
-					'tag'    => 'module',
-					'module' => [
-						'name' => 'User', 'room' => 'profile'
-					],
+				return [
 					'title'  => 'Мой профиль',
-					'user'   => [
+					'room'   => 'profile',
+					'data' => [
 						'uid'       => $this->uid,
 						'nick_name' => $this->nick_name,
-						'is_auth'   => $this->is_auth
-					],
-					'lang'  => $this->language
-				]);
+						'language'  => $this->language
+					]
+				];
 			} else {
-				//не авторизованы
-				//TOQ: можно сделать иначе
-				header("Location: /");
+				return false;
 			}
 		}
 	}
