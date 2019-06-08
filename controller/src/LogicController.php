@@ -46,7 +46,7 @@
 			}
 		}
 		
-		public function renderPage(string $tag): void {
+		public function renderPage(string $tag, $data = []): void {
 			$user_data = [];
 			$renderData = $this->modulesManager->getModule("user")->controller->getRenderData();
 			if($renderData = false) {
@@ -63,7 +63,8 @@
 			$this->renderT->twigRender([
 				"tag"   => $tag,
 				"title" => "Freeland Vote",
-				"user"  => $user_data
+				"user"  => $user_data,
+				"data"  => $data
 			]);
 		}
 	}

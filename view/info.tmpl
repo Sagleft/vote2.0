@@ -1,0 +1,16 @@
+{# вывод страницы с информацией #}
+<!DOCTYPE html>
+<html>
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{# mdiv #}
+		<div class="container">
+			{% include 'parts/navbar.tmpl' %}
+			<div class="row"><br/>
+				{% include 'info/'~page.data.route~'.tmpl' %}
+			</div>
+		  </div>
+		</div>
+		{# mdiv #}
+	</body>
+</html>
