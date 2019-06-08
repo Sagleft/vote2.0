@@ -5,7 +5,6 @@
 		public  $controller    = null;
 		public $modulesManager = null;
 		private $environment   = null;
-		//private $user          = null;
 		
 		public function __construct() {
 			//переменные среды

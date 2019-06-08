@@ -7,8 +7,12 @@
 		//контроллер - для работы с текущим пользователем
 		public $controller = null;
 		
-		public function __construct($renderT) {
-			$this->controller = new \Vote\Controller\Modules\UserController($renderT);
+		public function __construct(Render $renderT = null) {
+			if($renderT == null) {
+				$this->controller = new \Vote\Controller\Modules\UserController();
+			} else {
+				$this->controller = new \Vote\Controller\Modules\UserController($renderT);
+			}
 		}
 	}
 	

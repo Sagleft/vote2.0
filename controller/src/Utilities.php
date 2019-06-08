@@ -2,27 +2,20 @@
 	namespace Vote\Controller;
 	
 	class Utilities {
-		function isJson($string) { return ((is_string($string) && (is_object(json_decode($string)) || is_array(json_decode($string))))) ? true : false; }
+		function isJson($string): bool {
+			return ((is_string($string) && (is_object(json_decode($string)) || is_array(json_decode($string))))) ? true : false;
+		}
 		
-		function data_filter($string, $useDB = false, $db = null) {
+		function data_filter($string): string {
 			$string = strip_tags($string);
 			$string = stripslashes($string);
 			$string = htmlspecialchars($string);
 			$string = trim($string);
-			if($useDB && $db != null) {
-				if($db == null) {
-					//TODO
-					//$string = mysqli_real_escape_string($string);
-				} else {
-					//$string = mysqli_real_escape_string($string, $db);
-				}
-			} else {
-				//$string = mysqli_escape_string($string);
-			}
+			$string = mysqli::real_escape_string($string);
 			return $string;
 		}
 		
-		function cURL($url, $ref, $header, $cookie, $p=null){
+		function cURL($url, $ref, $header, $cookie, $p=null): string {
 			$curlDefault = true;
 			//чтобы тестировать на сервере, на котором нет guzzle
 			if($curlDefault) {
@@ -40,14 +33,14 @@
 				if($cookie != '') {
 					curl_setopt($ch, CURLOPT_COOKIE, $cookie);
 				}
-				if ($p) {
+				if($p) {
 					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 					curl_setopt($ch, CURLOPT_POST, 1);
 					curl_setopt($ch, CURLOPT_POSTFIELDS, $p);
 				}
 				$result =  curl_exec($ch);
 				curl_close($ch);
-				if ($result){
+				if($result){
 					return $result;
 				} else {
 					return '';
@@ -72,7 +65,7 @@
 			}
 		}
 		
-		function curl_get($url) {
+		function curl_get($url): string {
 			return \Alicanto\Utilities::cURL($url, '', '', '');
 		}
 	}

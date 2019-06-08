@@ -8,11 +8,11 @@
 			'version' => 1
 		];
 		
-		public function __construct($data = []) {
+		public function __construct(array $data = []) {
 			$this->data_wrap = ['page' => $data, 'version' => getenv('version')];
 		}
 		
-		function prepareRender() {
+		function prepareRender(): void {
 			$loader = new \Twig_Loader_Filesystem(__DIR__ . '/../../view/');
 			$twig = new \Twig_Environment($loader, [
 				'cache'       => __DIR__ . '/../../view/cache',
@@ -21,8 +21,8 @@
 			exit($twig->render($this->data_wrap['page']['tag'] . ".tmpl", $this->data_wrap));
 		}
 		
-		function twigRender($data = null) {
-			if($data != null) {
+		function twigRender(array $data = []): void {
+			if($data != []) {
 				$this->data_wrap = ['page' => $data, 'version' => getenv('version')];
 			}
 			$this->prepareRender();

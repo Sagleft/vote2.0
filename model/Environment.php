@@ -10,7 +10,7 @@
 			$this->loadFromENV();
 		}
 		
-		function loadFromENV() {
+		function loadFromENV(): void {
 			$dotenv = \Dotenv\Dotenv::create(__DIR__ . "/../");
 			$dotenv->load();
 			
@@ -22,8 +22,8 @@
 			$this->config = $new_config;
 		}
 		
-		function getResVersion() {
-			//TODO: заменить на что-нибудь получше
+		function getResVersion(): int {
+			//TOQ: заменить на что-нибудь другое
 			return $config['version'];
 		}
 	}

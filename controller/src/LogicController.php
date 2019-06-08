@@ -2,7 +2,6 @@
 	namespace Vote\Controller;
 	
 	class LogicController {
-		private $coin_connection = null;
 		//renderT - чтобы не пересекалось с функцией render
 		private $renderT         = null;
 		private $user            = null;
@@ -12,19 +11,20 @@
 			$this->renderT = new \Vote\Controller\Render();
 		}
 		
-		public function set_manager($modulesManager) {
+		//TOQ: типизацию аргумента сделать лаконичнее
+		public function set_manager(\Vote\Model\ModulesManager $modulesManager): void {
 			$this->modulesManager = &$modulesManager;
 		}
 		
-		public function set_user($user) {
+		public function set_user(UserController $user): void {
 			$this->user = &$user;
 		}
 		
-		public function render($data) {
+		public function render(array $data): void {
 			$this->renderT->twigRender($data);
 		}
 		
-		public function renderModulePage($module_name) {
+		public function renderModulePage($module_name): void {
 			//только для модулей, которые Renderable
 			$module = $this->modulesManager->getModule($module_name);
 			$renderData = $module->controller->getRenderData();
@@ -46,7 +46,7 @@
 			}
 		}
 		
-		public function renderPage($tag) {
+		public function renderPage($tag): void {
 			$this->renderT->twigRender([
 				'tag'  => $tag
 			]);

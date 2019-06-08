@@ -3,8 +3,8 @@
 	
 	//для работы с текущим пользователем
 	class UserController {
-		public $nick_name  = "Anonymous";
 		public $uid        = 0;
+		public $nick_name  = "Anonymous";
 		public $status     = "guest";
 		public $first_name = "Anon";
 		public $last_name  = "Ymous";
@@ -13,8 +13,10 @@
 		
 		private $renderT = null;
 		
-		public function __construct($renderT) {
-			$this->renderT = &$renderT;
+		public function __construct(Render $renderT = null) {
+			if($renderT != null) {
+				$this->renderT = &$renderT;
+			}
 			//проверяем, авторизован ли
 			if(!isset($_SESSION['uid'])) {
 				$this->is_auth = false;
@@ -26,12 +28,12 @@
 			}
 		}
 		
-		public function auth_request() {
+		public function auth_request(): void {
 			//запрос авторизации через OAUTH
 			//TODO, а пока через test_auth
 		}
 		
-		public function getRenderData() {
+		public function getRenderData(): array {
 			if($this->is_auth) {
 				return [
 					'title'  => 'Мой профиль',
