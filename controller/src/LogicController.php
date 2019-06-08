@@ -3,9 +3,9 @@
 	
 	class LogicController {
 		//renderT - чтобы не пересекалось с функцией render
-		private $renderT        = null;
-		private $user           = null;
-		private $modulesManager = null;
+		private $renderT         = null;
+		private $user_controller = null;
+		private $modulesManager  = null;
 		
 		public function __construct() {
 			$this->renderT = new \Vote\Controller\Render();
@@ -17,7 +17,7 @@
 		}
 		
 		public function set_user(UserController $user): void {
-			$this->user = &$user;
+			$this->user_controller = &$user;
 		}
 		
 		public function render(array $data): void {
@@ -33,12 +33,12 @@
 				header("Location: /"); exit;
 			} else {
 				$data = [
-					'tag'    => 'module',
-					'module' => [
-						'name' => $module_name,
-						'room' => $renderData['room']
+					"tag"    => "module",
+					"module" => [
+						"name" => $module_name,
+						"room" => $renderData["room"]
 					],
-					'title'  => $renderData['title']
+					"title"  => $renderData["title"]
 				];
 				//для модуля User (и варианта шаблона - profile) путь для шаблона будет /view/User/profile.tmpl
 				$data[$module_name] = $renderData['data'];
@@ -47,8 +47,23 @@
 		}
 		
 		public function renderPage(string $tag): void {
+			$user_data = [];
+			$renderData = $this->modulesManager->getModule("user")->controller->getRenderData();
+			if($renderData = false) {
+				$user_data = [
+					'is_auth' => false
+				];
+			} else {
+				//если авторизованы, передаем представлению
+				//данные текущего пользователя
+				$user_data = $renderData["data"];
+			}
+			//page.user.is_auth возвращает true в случае,
+			//если авторизован
 			$this->renderT->twigRender([
-				'tag'  => $tag
+				"tag"   => $tag,
+				"title" => "Freeland Vote",
+				"user"  => $user_data
 			]);
 		}
 	}

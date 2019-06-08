@@ -6,5 +6,8 @@
 			<li class="navbar-item"><a class="navbar-link" href="#">Статистика</a></li>
 			<li class="navbar-item"><a class="navbar-link" href="#">Архив</a></li>
 		</ul>
+		{% if page.user.is_auth == true %}
+			{# авторизован #}
+		{% endif %}
 	</div>
 </nav>

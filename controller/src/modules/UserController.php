@@ -39,6 +39,7 @@
 					'title'  => 'Мой профиль',
 					'room'   => 'profile',
 					'data' => [
+						'is_auth'   => $this->is_auth,
 						'uid'       => $this->uid,
 						'nick_name' => $this->nick_name,
 						'language'  => $this->language
