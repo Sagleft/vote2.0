@@ -1,5 +1,5 @@
 <?php
-	namespace Vote\Controller\Modules;
+	namespace App\Controller\Modules;
 	
 	class MFCoinController {
 		//

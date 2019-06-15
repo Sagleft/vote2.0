@@ -1,5 +1,5 @@
 <?php
-	namespace Vote\Model;
+	namespace App\Model;
 	class Environment {
 		protected $config = [];
 		private $params = [

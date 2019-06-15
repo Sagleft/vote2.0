@@ -1,5 +1,5 @@
 <?php
-	namespace Vote\Controller\Modules;
+	namespace App\Controller\Modules;
 	
 	//для работы с текущим пользователем
 	class UserController {
@@ -33,7 +33,8 @@
 			//TODO, а пока через test_auth
 		}
 		
-		public function getRenderData(): array {
+		public function getRenderData() {
+			//mixed: array / bool
 			if($this->is_auth) {
 				return [
 					'title'  => 'Мой профиль',

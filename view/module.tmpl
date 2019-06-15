@@ -1,7 +1,7 @@
 {# отображение страницы модуля #}
 {# обертка #}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 	{% include 'parts/head.tmpl' %}
 	<body>
 		{# mdiv #}
@@ -10,6 +10,7 @@
 			<div class="row"><br/>
 				{% include 'modules/'~page.module.name~'/'~page.module.room~'.tmpl' %}
 			</div>
+			{% include 'parts/footer.tmpl' %}
 		  </div>
 		</div>
 		{# mdiv #}

@@ -1,5 +1,5 @@
 <?php
-	namespace Vote\Controller;
+	namespace App\Controller;
 	
 	class LogicController {
 		//renderT - чтобы не пересекалось с функцией render
@@ -8,11 +8,11 @@
 		private $modulesManager  = null;
 		
 		public function __construct() {
-			$this->renderT = new \Vote\Controller\Render();
+			$this->renderT = new \App\Controller\Render();
 		}
 		
 		//TOQ: типизацию аргумента сделать лаконичнее
-		public function set_manager(\Vote\Model\ModulesManager $modulesManager): void {
+		public function set_manager(\App\Model\ModulesManager $modulesManager): void {
 			$this->modulesManager = &$modulesManager;
 		}
 		

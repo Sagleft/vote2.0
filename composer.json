@@ -6,10 +6,10 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Vote\\Controller\\": "controller/src/",
-			"Vote\\Controller\\Modules\\": "controller/src/modules/",
-			"Vote\\Model\\": "model/",
-			"Vote\\Model\\Modules\\": "model/modules/",
+			"App\\Controller\\": "controller/src/",
+			"App\\Controller\\Modules\\": "controller/src/modules/",
+			"App\\Model\\": "model/",
+			"App\\Model\\Modules\\": "model/modules/",
 			"RPC\\": "model/"
 		}
 	},

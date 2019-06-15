@@ -1,5 +1,5 @@
 <?php
-	namespace Vote\Controller;
+	namespace App\Model;
 	
 	class Utilities {
 		function isJson($string): bool {
@@ -66,7 +66,7 @@
 		}
 		
 		function curl_get($url): string {
-			return \Vote\Utilities::cURL($url, '', '', '');
+			return \App\Model\Utilities::cURL($url, '', '', '');
 		}
 	}
 	

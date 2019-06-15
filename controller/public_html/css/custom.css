@@ -242,3 +242,24 @@
   .popover-item:first-child .popover-link:hover:after {
     border-bottom-color: #33C3F0; }
 }
+
+.btn-mini {
+	padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.alert-info {
+	background-color: #e2f4ff;
+    padding: 11px;
+    border: 1px solid #cbebff;
+    margin-bottom: 25px;
+}

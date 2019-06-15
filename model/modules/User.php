@@ -1,5 +1,5 @@
 <?php
-	namespace Vote\Model\Modules;
+	namespace App\Model\Modules;
 	
 	//логика произвольного пользователя
 	class User {
@@ -9,9 +9,9 @@
 		
 		public function __construct(Render $renderT = null) {
 			if($renderT == null) {
-				$this->controller = new \Vote\Controller\Modules\UserController();
+				$this->controller = new \App\Controller\Modules\UserController();
 			} else {
-				$this->controller = new \Vote\Controller\Modules\UserController($renderT);
+				$this->controller = new \App\Controller\Modules\UserController($renderT);
 			}
 		}
 	}

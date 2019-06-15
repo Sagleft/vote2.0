@@ -1,6 +1,6 @@
 {# вывод страницы с информацией #}
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 	{% include 'parts/head.tmpl' %}
 	<body>
 		{# mdiv #}
@@ -9,7 +9,8 @@
 			<div class="row"><br/>
 				{% include 'info/'~page.data.route~'.tmpl' %}
 			</div>
-		  </div>
+		  </div><br/>
+		  {% include 'parts/footer.tmpl' %}
 		</div>
 		{# mdiv #}
 	</body>

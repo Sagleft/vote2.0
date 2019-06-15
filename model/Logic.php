@@ -1,5 +1,5 @@
 <?php
-	namespace Vote\Model;
+	namespace App\Model;
 	
 	class Logic {
 		public  $controller    = null;
@@ -8,11 +8,11 @@
 		
 		public function __construct() {
 			//переменные среды
-			$this->environment    = new \Vote\Model\Environment();
+			$this->environment    = new \App\Model\Environment();
 			//контроллер
-			$this->controller     = new \Vote\Controller\LogicController();
+			$this->controller     = new \App\Controller\LogicController();
 			//менеджер модулей
-			$this->modulesManager = new \Vote\Model\ModulesManager($renderT);
+			$this->modulesManager = new \App\Model\ModulesManager($renderT);
 			//передаем ссылку на менеджер модулей в контроллер
 			$this->controller->set_manager($this->modulesManager);
 		}
