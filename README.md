@@ -24,3 +24,9 @@ Directory: ``` controller\public_html ```
 * Copyright (c) 2019 Sagleft.
 * EasyBitcoin-PHP Copyright (c) 2013 Andrew LeCody.
 * Skeleton Web Template Copyright (c) 2011-2014 Dave Gamache.
+
+---
+
+![image](https://github.com/Sagleft/Sagleft/raw/master/image.png)
+
+### :globe_with_meridians: [Telegram канал](https://t.me/+VIvd8j6xvm9iMzhi)
